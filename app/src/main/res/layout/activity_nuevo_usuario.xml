@@ -11,8 +11,8 @@
         android:id="@+id/datos1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:text="Introduce los datos del cliente:"
+        app:layout_constraintBottom_toTopOf="@+id/usuarioNom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,10 +22,10 @@
         android:id="@+id/usuarioNom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="Tu nombre"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/usuarioEdad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,10 +35,10 @@
         android:id="@+id/usuarioEdad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:ems="10"
-        android:inputType="number"
         android:hint="Tu edad"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/usuarioEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,12 +48,12 @@
         android:id="@+id/usuarioEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Tu email"
         android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/salirCrear"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usuarioEdad" />
 
@@ -61,22 +61,22 @@
         android:id="@+id/botonCrearUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
         android:text="Crear usuario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/salirCrear" />
 
     <Button
         android:id="@+id/salirCrear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
         android:text="Volver"
         app:layout_constraintBottom_toTopOf="@+id/botonCrearUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usuarioEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

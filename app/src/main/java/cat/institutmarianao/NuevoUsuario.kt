@@ -35,11 +35,12 @@ class NuevoUsuario : AppCompatActivity() {
                     .set(client)
                     .addOnSuccessListener { documentReference ->
                         Log.d("Firestore", "Document saved with ID: ${infoMail.text}")
+                        finish()
                     }
                     .addOnFailureListener { e ->
                         Log.w("Firestore", "Error adding document", e)
                     }
-                finish()
+
             }
         }
 

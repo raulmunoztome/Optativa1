@@ -5,37 +5,51 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClientsActivity">
+    tools:context=".EliminarCliente">
 
-    <TextView
-        android:id="@+id/info1"
+    <EditText
+        android:id="@+id/emailEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/boton2"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/confirEliminar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce el email del usuario"
+        app:layout_constraintBottom_toTopOf="@+id/emailEliminar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/boton2"
+        android:id="@+id/confirEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cerrar sesión"
-        app:layout_constraintBottom_toTopOf="@+id/boton3"
+        android:text="Eliminar"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/volvX"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info1" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEliminar" />
 
     <Button
-        android:id="@+id/boton3"
+        android:id="@+id/volvX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gestion de usuarios"
+        android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boton2" />
+        app:layout_constraintTop_toBottomOf="@+id/confirEliminar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
