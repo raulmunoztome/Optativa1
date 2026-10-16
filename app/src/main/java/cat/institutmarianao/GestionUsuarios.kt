@@ -30,7 +30,7 @@ class GestionUsuarios : AppCompatActivity() {
         }
 
         listar.setOnClickListener {
-            val listarCliente = Intent(this,Listado::class.java)
+            val listarCliente = Intent(this, Listado::class.java)
             startActivity(listarCliente)
         }
 

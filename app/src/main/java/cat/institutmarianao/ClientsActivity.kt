@@ -19,7 +19,8 @@ class ClientsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clients)
         val bundle = intent.extras
-        val usuari = bundle?.getString("email")
+        val usuari = intent.getStringExtra("email")
+            ?: FirebaseAuth.getInstance().currentUser?.email
 
         val info = findViewById<TextView>(R.id.info1)
         val volver = findViewById<Button>(R.id.boton2)

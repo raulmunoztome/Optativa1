@@ -23,14 +23,14 @@ class EliminarCliente : AppCompatActivity() {
         val confirEliminar = findViewById<Button>(R.id.confirEliminar)
         val correoEliminar = findViewById<EditText>(R.id.emailEliminar)
 
-        correoEliminar.addTextChangedListener{
+        correoEliminar.addTextChangedListener {
             confirEliminar.visibility = View.VISIBLE
         }
         volverAtras.setOnClickListener {
             finish()
         }
         confirEliminar.setOnClickListener {
-            if(!correoEliminar.text.toString().isEmpty()){
+            if (!correoEliminar.text.toString().isEmpty()) {
                 db.collection("clients").document(correoEliminar.text.toString().trim())
                     .delete()
                     .addOnSuccessListener {

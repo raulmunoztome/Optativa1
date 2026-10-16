@@ -24,39 +24,43 @@ class MainActivity : AppCompatActivity() {
             loginForm(emailEditText, passwordEditText)
         }
     }
-        private fun loginForm(emailEditText: EditText, passwordEditText: EditText) {
-            val email = emailEditText.text.toString().trim()
-            val password = passwordEditText.text.toString().trim()
 
-            login(email, password)
-        }
+    private fun loginForm(emailEditText: EditText, passwordEditText: EditText) {
+        val email = emailEditText.text.toString().trim()
+        val password = passwordEditText.text.toString().trim()
 
-        private fun login(email: String, password: String) {
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(
-                    this, "Email and password required", Toast.LENGTH_SHORT
-                ).show()
-                return
-            }
-
-            // * Firebase login * //
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(
-                            this,
-                            "Welcome ${FirebaseAuth.getInstance().currentUser?.email}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        val clientsActivity = Intent(this, ClientsActivity::class.java)
-                        clientsActivity.putExtra("email",findViewById<EditText>(R.id.emailEditText).text.toString())
-                        startActivity(clientsActivity)
-                    } else {
-                        Toast.makeText(
-                            this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-        }
-
+        login(email, password)
     }
+
+    private fun login(email: String, password: String) {
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(
+                this, "Email and password required", Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+
+        // * Firebase login * //
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(
+                        this,
+                        "Welcome ${FirebaseAuth.getInstance().currentUser?.email}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    val clientsActivity = Intent(this, ClientsActivity::class.java)
+                    clientsActivity.putExtra(
+                        "email",
+                        findViewById<EditText>(R.id.emailEditText).text.toString()
+                    )
+                    startActivity(clientsActivity)
+                } else {
+                    Toast.makeText(
+                        this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+    }
+
+}

@@ -7,7 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ClientAdapter(
-    private val clients: List<Client>) : RecyclerView.Adapter<ClientAdapter.ClientViewHolder>() {
+    private val clients: List<Client>
+) : RecyclerView.Adapter<ClientAdapter.ClientViewHolder>() {
 
     class ClientViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameText: TextView = itemView.findViewById(R.id.nameTextView)

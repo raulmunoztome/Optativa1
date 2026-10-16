@@ -27,35 +27,37 @@ class CambioDatos : AppCompatActivity() {
         val correo = findViewById<EditText>(R.id.EmailAddressCambios)
 
         botonNom.setOnClickListener {
-                inNom.visibility = View.VISIBLE
-                inEdad.visibility = View.GONE
-                botonEdad.visibility = View.GONE
-                finalizar.visibility = View.VISIBLE
+            inNom.visibility = View.VISIBLE
+            inEdad.visibility = View.GONE
+            botonEdad.visibility = View.GONE
+            finalizar.visibility = View.VISIBLE
 
         }
         botonEdad.setOnClickListener {
-                inNom.visibility = View.GONE
-                inEdad.visibility = View.VISIBLE
-                botonNom.visibility = View.GONE
-                finalizar.visibility = View.VISIBLE
+            inNom.visibility = View.GONE
+            inEdad.visibility = View.VISIBLE
+            botonNom.visibility = View.GONE
+            finalizar.visibility = View.VISIBLE
         }
         atras.setOnClickListener {
             finish()
         }
         finalizar.setOnClickListener {
-            if(!correo.text.toString().isEmpty()){
+            if (!correo.text.toString().isEmpty()) {
                 val userRef = db.collection("clients").document(correo.text.toString().trim())
-                if(botonNom.visibility == View.GONE) {
+                if (botonNom.visibility == View.GONE) {
                     userRef.update("age", inEdad.text.toString().toIntOrNull())
                         .addOnSuccessListener {
                             Log.d("Firestore", "Client updated successfully!")
                             finish()
                         }
-                }
-                else{
+                } else {
                     userRef.update("name", inNom.text.toString().trim())
                         .addOnSuccessListener {
-                            Log.d("Firestore", "Client ${correo.text.toString().trim()} updated successfully!")
+                            Log.d(
+                                "Firestore",
+                                "Client ${correo.text.toString().trim()} updated successfully!"
+                            )
                             finish()
                         }
                 }

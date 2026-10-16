@@ -14,6 +14,7 @@ data class Client(
     val email: String = "",
     val age: Int? = null
 )
+
 class Listado : AppCompatActivity() {
 
     private val db = Firebase.firestore
@@ -41,6 +42,7 @@ class Listado : AppCompatActivity() {
             finish()
         }
     }
+
     private fun loadClientsFromFirestore() {
         // * Firestore get all documents from collection * //
         db.collection("clients").get().addOnSuccessListener { result ->
